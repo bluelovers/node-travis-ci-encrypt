@@ -40,3 +40,4 @@ __tests__
 *.ts
 !*.d.ts
 
+/bin/travis-ci-encrypt.d.ts

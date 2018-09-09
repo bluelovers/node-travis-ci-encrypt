@@ -1,7 +1,7 @@
 {
   "name": "travis-ci-encrypt",
   "version": "1.0.0",
-  "description": "",
+  "description": "a node.js travis-ci encrypt cli",
   "homepage": "https://github.com/bluelovers/node-travis-ci-encrypt#readme",
   "bugs": {
     "url": "https://github.com/bluelovers/node-travis-ci-encrypt/issues"
@@ -14,7 +14,7 @@
   "author": "",
   "main": "index.js",
   "bin": {
-    "travis-ci-encrypt": "travis-ci-encrypt.js"
+    "travis-ci-encrypt": "bin/travis-ci-encrypt.js"
   },
   "directories": {
     "test": "test"
