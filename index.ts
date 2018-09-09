@@ -3,7 +3,7 @@
  */
 
 import { SpawnSyncReturns } from 'child_process';
-import YAML_FS, { IParseYAML, outputYAML, overwriteYAML, readYAML } from 'yaml-fs';
+import YAML_FS, { IParseYAML, outputYAML, overwriteYAML, readYAML, IParseYAMLOptions, IStringifyYAMLOptions, IYAMLOptions } from 'yaml-fs';
 import bluebird = require('bluebird');
 import YAML from 'yaml';
 import * as fs from 'fs-extra';
