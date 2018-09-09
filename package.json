@@ -1,6 +1,6 @@
 {
   "name": "travis-ci-encrypt",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "a node.js travis-ci encrypt cli",
   "homepage": "https://github.com/bluelovers/node-travis-ci-encrypt#readme",
   "bugs": {
