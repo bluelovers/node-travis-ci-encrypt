@@ -76,8 +76,8 @@ function updateTravis(ret, data) {
 }
 exports.updateTravis = updateTravis;
 function parseSecure(ret) {
-    let m = /^secure:\s*"([^\"]+)"$/.exec(ret);
-    if (!m[1]) {
+    let m = /^(?:secure:)?\s*"([^\"]+)"$/.exec(ret);
+    if (!m || !m[1]) {
         throw new Error(`parseSecure fail: ${ret}`);
     }
     return {
@@ -88,7 +88,8 @@ exports.parseSecure = parseSecure;
 function trimOutput(ret) {
     return ret.toString()
         .replace(/^\s*Please add the following to your \.travis\.yml file:\s*/ig, '')
-        .replace(/\s*Pro Tip: You can add it automatically by running with --add\.\s*$/, '');
+        .replace(/\s*Pro Tip: You can add it automatically by running with --add\.\s*$/, '')
+        .replace(/^\s+|\s+$/g, '');
 }
 exports.trimOutput = trimOutput;
 exports.default = travisEncrypt;

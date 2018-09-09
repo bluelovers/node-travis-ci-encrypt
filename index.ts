@@ -121,9 +121,9 @@ export interface IParseSecure
 
 export function parseSecure(ret: string): IParseSecure
 {
-	let m = /^secure:\s*"([^\"]+)"$/.exec(ret);
+	let m = /^(?:secure:)?\s*"([^\"]+)"$/.exec(ret);
 
-	if (!m[1])
+	if (!m || !m[1])
 	{
 		throw new Error(`parseSecure fail: ${ret}`);
 	}
@@ -138,6 +138,7 @@ export function trimOutput(ret: string | Buffer)
 	return ret.toString()
 		.replace(/^\s*Please add the following to your \.travis\.yml file:\s*/ig, '')
 		.replace(/\s*Pro Tip: You can add it automatically by running with --add\.\s*$/, '')
+		.replace(/^\s+|\s+$/g, '')
 	;
 }
 

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import yargs = require('yargs');
 import travisEncrypt from '..';
+import { YAML } from 'yaml-fs';
 
 const argv = yargs
 	.option('key', {
@@ -43,6 +44,13 @@ travisEncrypt(argv.key, argv.value, {
 	travisYml: argv.input,
 	outputFile: argv.output,
 	addToConf: argv.add,
-});
+})
+	.tap(function (ret)
+	{
+		let code = YAML.stringify(ret);
+
+		console.log(code);
+	})
+;
 
 

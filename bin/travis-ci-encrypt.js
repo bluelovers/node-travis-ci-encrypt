@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const yargs = require("yargs");
 const __1 = require("..");
+const yaml_fs_1 = require("yaml-fs");
 const argv = yargs
     .option('key', {
     alias: ['k'],
@@ -40,4 +41,8 @@ __1.default(argv.key, argv.value, {
     travisYml: argv.input,
     outputFile: argv.output,
     addToConf: argv.add,
+})
+    .tap(function (ret) {
+    let code = yaml_fs_1.YAML.stringify(ret);
+    console.log(code);
 });
