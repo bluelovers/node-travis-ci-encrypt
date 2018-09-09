@@ -1,7 +1,5 @@
+#!/usr/bin/env node
 "use strict";
-/**
- * Created by user on 2018/9/9/009.
- */
 Object.defineProperty(exports, "__esModule", { value: true });
 const yargs = require("yargs");
 const __1 = require("..");

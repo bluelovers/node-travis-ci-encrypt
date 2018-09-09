@@ -1,7 +1,4 @@
-/**
- * Created by user on 2018/9/9/009.
- */
-
+#!/usr/bin/env node
 import yargs = require('yargs');
 import travisEncrypt from '..';
 
