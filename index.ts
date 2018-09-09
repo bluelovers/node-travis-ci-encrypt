@@ -3,7 +3,7 @@
  */
 
 import { SpawnSyncReturns } from 'child_process';
-import YAML_FS, { IParseYAML, outputYAML, readYAML } from 'yaml-fs';
+import YAML_FS, { IParseYAML, outputYAML, overwriteYAML, readYAML } from 'yaml-fs';
 import bluebird = require('bluebird');
 import YAML from 'yaml';
 import * as fs from 'fs-extra';
@@ -110,8 +110,7 @@ export function updateTravis(ret: IParseSecure, data: IParseYAML)
 	dd.env.global = dd.env.global || [];
 	dd.env.global.push(ret);
 
-	data.json = dd;
-	return data;
+	return overwriteYAML(dd, data);
 }
 
 export interface IParseSecure

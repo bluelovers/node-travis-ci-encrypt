@@ -71,8 +71,7 @@ function updateTravis(ret, data) {
     dd.env = dd.env || {};
     dd.env.global = dd.env.global || [];
     dd.env.global.push(ret);
-    data.json = dd;
-    return data;
+    return yaml_fs_1.overwriteYAML(dd, data);
 }
 exports.updateTravis = updateTravis;
 function parseSecure(ret) {
