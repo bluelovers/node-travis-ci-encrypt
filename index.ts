@@ -54,19 +54,19 @@ export function travisEncrypt(key: string, value: string, options?: IOptions)
 			}
 			else if (ret.stderr && ret.stderr.length)
 			{
-				return Promise.reject(new Error(ret.stderr.toString()))
+				if (!ret.stdout.length)
+				{
+					return Promise.reject(new Error(ret.stderr.toString()))
+				}
+
+				console.warn(ret.stdout.toString());
 			}
 
 			return ret;
 		})
 		.then(function (ret)
 		{
-			let ls = ret.output.filter(function (v)
-			{
-				return v && v.length;
-			});
-
-			return Buffer.concat(ls as any);
+			return ret.stdout;
 		})
 		.then(function (ret)
 		{
